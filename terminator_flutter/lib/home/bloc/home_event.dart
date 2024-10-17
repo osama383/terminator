@@ -1,4 +1,8 @@
 part of 'home_bloc.dart';
 
-@immutable
-sealed class HomeEvent {}
+@freezed
+sealed class HomeEvent with _$HomeEvent {
+  const factory HomeEvent.onCommandInput(String input) = _OnCommandInput;
+  const factory HomeEvent.onArrowUp() = _OnArrowUp;
+  const factory HomeEvent.onArrowDown() = _OnArrowDown;
+}

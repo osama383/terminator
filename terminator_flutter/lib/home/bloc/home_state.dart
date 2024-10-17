@@ -1,6 +1,10 @@
 part of 'home_bloc.dart';
 
-@immutable
-sealed class HomeState {}
+@freezed
+sealed class HomeState with _$HomeState {
+  const factory HomeState({
+    required List<String> history,
+  }) = _HomeState;
 
-final class HomeInitial extends HomeState {}
+  factory HomeState.initial() => const _HomeState(history: []);
+}

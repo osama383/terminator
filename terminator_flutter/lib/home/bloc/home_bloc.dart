@@ -1,13 +1,20 @@
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'home_event.dart';
 part 'home_state.dart';
+part 'home_bloc.freezed.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
-  HomeBloc() : super(HomeInitial()) {
+  HomeBloc() : super(HomeState.initial()) {
     on<HomeEvent>((event, emit) {
-      // TODO: implement event handler
+      event.map(
+        onCommandInput: (event) {
+          emit(state.copyWith(history: state.history..add(event.input)));
+        },
+        onArrowUp: (value) {},
+        onArrowDown: (value) {},
+      );
     });
   }
 }
