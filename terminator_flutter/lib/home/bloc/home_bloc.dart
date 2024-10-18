@@ -10,10 +10,27 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<HomeEvent>((event, emit) {
       event.map(
         onCommandInput: (event) {
-          emit(state.copyWith(history: state.history..add(event.input)));
+          final history = List<String>.from(state.history);
+          history[history.length - 1] = event.input;
+          emit(state.copyWith(history: history));
         },
-        onArrowUp: (value) {},
-        onArrowDown: (value) {},
+        onArrowUp: (value) {
+          if (state.reverseIndex == state.history.length - 1) return;
+          emit(state.copyWith(reverseIndex: state.reverseIndex + 1));
+        },
+        onArrowDown: (value) {
+          if (state.reverseIndex == 0) return;
+          emit(state.copyWith(reverseIndex: state.reverseIndex - 1));
+        },
+        onSubmit: (value) {
+          final history = List<String>.from(state.history);
+          emit(
+            state.copyWith(
+              history: history..add(''),
+              reverseIndex: 0,
+            ),
+          );
+        },
       );
     });
   }

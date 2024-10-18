@@ -21,6 +21,7 @@ mixin _$HomeEvent {
     required TResult Function(String input) onCommandInput,
     required TResult Function() onArrowUp,
     required TResult Function() onArrowDown,
+    required TResult Function() onSubmit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$HomeEvent {
     TResult? Function(String input)? onCommandInput,
     TResult? Function()? onArrowUp,
     TResult? Function()? onArrowDown,
+    TResult? Function()? onSubmit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$HomeEvent {
     TResult Function(String input)? onCommandInput,
     TResult Function()? onArrowUp,
     TResult Function()? onArrowDown,
+    TResult Function()? onSubmit,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$HomeEvent {
     required TResult Function(_OnCommandInput value) onCommandInput,
     required TResult Function(_OnArrowUp value) onArrowUp,
     required TResult Function(_OnArrowDown value) onArrowDown,
+    required TResult Function(_OnSubmit value) onSubmit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$HomeEvent {
     TResult? Function(_OnCommandInput value)? onCommandInput,
     TResult? Function(_OnArrowUp value)? onArrowUp,
     TResult? Function(_OnArrowDown value)? onArrowDown,
+    TResult? Function(_OnSubmit value)? onSubmit,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$HomeEvent {
     TResult Function(_OnCommandInput value)? onCommandInput,
     TResult Function(_OnArrowUp value)? onArrowUp,
     TResult Function(_OnArrowDown value)? onArrowDown,
+    TResult Function(_OnSubmit value)? onSubmit,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -147,6 +153,7 @@ class _$OnCommandInputImpl implements _OnCommandInput {
     required TResult Function(String input) onCommandInput,
     required TResult Function() onArrowUp,
     required TResult Function() onArrowDown,
+    required TResult Function() onSubmit,
   }) {
     return onCommandInput(input);
   }
@@ -157,6 +164,7 @@ class _$OnCommandInputImpl implements _OnCommandInput {
     TResult? Function(String input)? onCommandInput,
     TResult? Function()? onArrowUp,
     TResult? Function()? onArrowDown,
+    TResult? Function()? onSubmit,
   }) {
     return onCommandInput?.call(input);
   }
@@ -167,6 +175,7 @@ class _$OnCommandInputImpl implements _OnCommandInput {
     TResult Function(String input)? onCommandInput,
     TResult Function()? onArrowUp,
     TResult Function()? onArrowDown,
+    TResult Function()? onSubmit,
     required TResult orElse(),
   }) {
     if (onCommandInput != null) {
@@ -181,6 +190,7 @@ class _$OnCommandInputImpl implements _OnCommandInput {
     required TResult Function(_OnCommandInput value) onCommandInput,
     required TResult Function(_OnArrowUp value) onArrowUp,
     required TResult Function(_OnArrowDown value) onArrowDown,
+    required TResult Function(_OnSubmit value) onSubmit,
   }) {
     return onCommandInput(this);
   }
@@ -191,6 +201,7 @@ class _$OnCommandInputImpl implements _OnCommandInput {
     TResult? Function(_OnCommandInput value)? onCommandInput,
     TResult? Function(_OnArrowUp value)? onArrowUp,
     TResult? Function(_OnArrowDown value)? onArrowDown,
+    TResult? Function(_OnSubmit value)? onSubmit,
   }) {
     return onCommandInput?.call(this);
   }
@@ -201,6 +212,7 @@ class _$OnCommandInputImpl implements _OnCommandInput {
     TResult Function(_OnCommandInput value)? onCommandInput,
     TResult Function(_OnArrowUp value)? onArrowUp,
     TResult Function(_OnArrowDown value)? onArrowDown,
+    TResult Function(_OnSubmit value)? onSubmit,
     required TResult orElse(),
   }) {
     if (onCommandInput != null) {
@@ -260,6 +272,7 @@ class _$OnArrowUpImpl implements _OnArrowUp {
     required TResult Function(String input) onCommandInput,
     required TResult Function() onArrowUp,
     required TResult Function() onArrowDown,
+    required TResult Function() onSubmit,
   }) {
     return onArrowUp();
   }
@@ -270,6 +283,7 @@ class _$OnArrowUpImpl implements _OnArrowUp {
     TResult? Function(String input)? onCommandInput,
     TResult? Function()? onArrowUp,
     TResult? Function()? onArrowDown,
+    TResult? Function()? onSubmit,
   }) {
     return onArrowUp?.call();
   }
@@ -280,6 +294,7 @@ class _$OnArrowUpImpl implements _OnArrowUp {
     TResult Function(String input)? onCommandInput,
     TResult Function()? onArrowUp,
     TResult Function()? onArrowDown,
+    TResult Function()? onSubmit,
     required TResult orElse(),
   }) {
     if (onArrowUp != null) {
@@ -294,6 +309,7 @@ class _$OnArrowUpImpl implements _OnArrowUp {
     required TResult Function(_OnCommandInput value) onCommandInput,
     required TResult Function(_OnArrowUp value) onArrowUp,
     required TResult Function(_OnArrowDown value) onArrowDown,
+    required TResult Function(_OnSubmit value) onSubmit,
   }) {
     return onArrowUp(this);
   }
@@ -304,6 +320,7 @@ class _$OnArrowUpImpl implements _OnArrowUp {
     TResult? Function(_OnCommandInput value)? onCommandInput,
     TResult? Function(_OnArrowUp value)? onArrowUp,
     TResult? Function(_OnArrowDown value)? onArrowDown,
+    TResult? Function(_OnSubmit value)? onSubmit,
   }) {
     return onArrowUp?.call(this);
   }
@@ -314,6 +331,7 @@ class _$OnArrowUpImpl implements _OnArrowUp {
     TResult Function(_OnCommandInput value)? onCommandInput,
     TResult Function(_OnArrowUp value)? onArrowUp,
     TResult Function(_OnArrowDown value)? onArrowDown,
+    TResult Function(_OnSubmit value)? onSubmit,
     required TResult orElse(),
   }) {
     if (onArrowUp != null) {
@@ -368,6 +386,7 @@ class _$OnArrowDownImpl implements _OnArrowDown {
     required TResult Function(String input) onCommandInput,
     required TResult Function() onArrowUp,
     required TResult Function() onArrowDown,
+    required TResult Function() onSubmit,
   }) {
     return onArrowDown();
   }
@@ -378,6 +397,7 @@ class _$OnArrowDownImpl implements _OnArrowDown {
     TResult? Function(String input)? onCommandInput,
     TResult? Function()? onArrowUp,
     TResult? Function()? onArrowDown,
+    TResult? Function()? onSubmit,
   }) {
     return onArrowDown?.call();
   }
@@ -388,6 +408,7 @@ class _$OnArrowDownImpl implements _OnArrowDown {
     TResult Function(String input)? onCommandInput,
     TResult Function()? onArrowUp,
     TResult Function()? onArrowDown,
+    TResult Function()? onSubmit,
     required TResult orElse(),
   }) {
     if (onArrowDown != null) {
@@ -402,6 +423,7 @@ class _$OnArrowDownImpl implements _OnArrowDown {
     required TResult Function(_OnCommandInput value) onCommandInput,
     required TResult Function(_OnArrowUp value) onArrowUp,
     required TResult Function(_OnArrowDown value) onArrowDown,
+    required TResult Function(_OnSubmit value) onSubmit,
   }) {
     return onArrowDown(this);
   }
@@ -412,6 +434,7 @@ class _$OnArrowDownImpl implements _OnArrowDown {
     TResult? Function(_OnCommandInput value)? onCommandInput,
     TResult? Function(_OnArrowUp value)? onArrowUp,
     TResult? Function(_OnArrowDown value)? onArrowDown,
+    TResult? Function(_OnSubmit value)? onSubmit,
   }) {
     return onArrowDown?.call(this);
   }
@@ -422,6 +445,7 @@ class _$OnArrowDownImpl implements _OnArrowDown {
     TResult Function(_OnCommandInput value)? onCommandInput,
     TResult Function(_OnArrowUp value)? onArrowUp,
     TResult Function(_OnArrowDown value)? onArrowDown,
+    TResult Function(_OnSubmit value)? onSubmit,
     required TResult orElse(),
   }) {
     if (onArrowDown != null) {
@@ -436,8 +460,123 @@ abstract class _OnArrowDown implements HomeEvent {
 }
 
 /// @nodoc
+abstract class _$$OnSubmitImplCopyWith<$Res> {
+  factory _$$OnSubmitImplCopyWith(
+          _$OnSubmitImpl value, $Res Function(_$OnSubmitImpl) then) =
+      __$$OnSubmitImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$OnSubmitImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$OnSubmitImpl>
+    implements _$$OnSubmitImplCopyWith<$Res> {
+  __$$OnSubmitImplCopyWithImpl(
+      _$OnSubmitImpl _value, $Res Function(_$OnSubmitImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$OnSubmitImpl implements _OnSubmit {
+  const _$OnSubmitImpl();
+
+  @override
+  String toString() {
+    return 'HomeEvent.onSubmit()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$OnSubmitImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String input) onCommandInput,
+    required TResult Function() onArrowUp,
+    required TResult Function() onArrowDown,
+    required TResult Function() onSubmit,
+  }) {
+    return onSubmit();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String input)? onCommandInput,
+    TResult? Function()? onArrowUp,
+    TResult? Function()? onArrowDown,
+    TResult? Function()? onSubmit,
+  }) {
+    return onSubmit?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String input)? onCommandInput,
+    TResult Function()? onArrowUp,
+    TResult Function()? onArrowDown,
+    TResult Function()? onSubmit,
+    required TResult orElse(),
+  }) {
+    if (onSubmit != null) {
+      return onSubmit();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_OnCommandInput value) onCommandInput,
+    required TResult Function(_OnArrowUp value) onArrowUp,
+    required TResult Function(_OnArrowDown value) onArrowDown,
+    required TResult Function(_OnSubmit value) onSubmit,
+  }) {
+    return onSubmit(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_OnCommandInput value)? onCommandInput,
+    TResult? Function(_OnArrowUp value)? onArrowUp,
+    TResult? Function(_OnArrowDown value)? onArrowDown,
+    TResult? Function(_OnSubmit value)? onSubmit,
+  }) {
+    return onSubmit?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_OnCommandInput value)? onCommandInput,
+    TResult Function(_OnArrowUp value)? onArrowUp,
+    TResult Function(_OnArrowDown value)? onArrowDown,
+    TResult Function(_OnSubmit value)? onSubmit,
+    required TResult orElse(),
+  }) {
+    if (onSubmit != null) {
+      return onSubmit(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnSubmit implements HomeEvent {
+  const factory _OnSubmit() = _$OnSubmitImpl;
+}
+
+/// @nodoc
 mixin _$HomeState {
   List<String> get history => throw _privateConstructorUsedError;
+  int get reverseIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -449,7 +588,7 @@ abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
-  $Res call({List<String> history});
+  $Res call({List<String> history, int reverseIndex});
 }
 
 /// @nodoc
@@ -466,12 +605,17 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   @override
   $Res call({
     Object? history = null,
+    Object? reverseIndex = null,
   }) {
     return _then(_value.copyWith(
       history: null == history
           ? _value.history
           : history // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      reverseIndex: null == reverseIndex
+          ? _value.reverseIndex
+          : reverseIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -484,7 +628,7 @@ abstract class _$$HomeStateImplCopyWith<$Res>
       __$$HomeStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<String> history});
+  $Res call({List<String> history, int reverseIndex});
 }
 
 /// @nodoc
@@ -499,12 +643,17 @@ class __$$HomeStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? history = null,
+    Object? reverseIndex = null,
   }) {
     return _then(_$HomeStateImpl(
       history: null == history
           ? _value._history
           : history // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      reverseIndex: null == reverseIndex
+          ? _value.reverseIndex
+          : reverseIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -512,7 +661,8 @@ class __$$HomeStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$HomeStateImpl implements _HomeState {
-  const _$HomeStateImpl({required final List<String> history})
+  const _$HomeStateImpl(
+      {required final List<String> history, required this.reverseIndex})
       : _history = history;
 
   final List<String> _history;
@@ -524,8 +674,11 @@ class _$HomeStateImpl implements _HomeState {
   }
 
   @override
+  final int reverseIndex;
+
+  @override
   String toString() {
-    return 'HomeState(history: $history)';
+    return 'HomeState(history: $history, reverseIndex: $reverseIndex)';
   }
 
   @override
@@ -533,12 +686,14 @@ class _$HomeStateImpl implements _HomeState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HomeStateImpl &&
-            const DeepCollectionEquality().equals(other._history, _history));
+            const DeepCollectionEquality().equals(other._history, _history) &&
+            (identical(other.reverseIndex, reverseIndex) ||
+                other.reverseIndex == reverseIndex));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_history));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_history), reverseIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -548,11 +703,14 @@ class _$HomeStateImpl implements _HomeState {
 }
 
 abstract class _HomeState implements HomeState {
-  const factory _HomeState({required final List<String> history}) =
-      _$HomeStateImpl;
+  const factory _HomeState(
+      {required final List<String> history,
+      required final int reverseIndex}) = _$HomeStateImpl;
 
   @override
   List<String> get history;
+  @override
+  int get reverseIndex;
   @override
   @JsonKey(ignore: true)
   _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>

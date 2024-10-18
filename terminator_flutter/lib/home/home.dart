@@ -1,4 +1,5 @@
-import 'package:flutter/foundation.dart';
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,101 +15,75 @@ class Home extends StatelessWidget {
       create: (context) => HomeBloc(),
       child: Scaffold(
         appBar: AppBar(title: const Text('Terminator')),
-        body: const Column(
-          children: [
-            // Spacer(),
-            // CommandInput(),
-            MyKeyExample(),
-          ],
-        ),
+        body: const Commando(),
       ),
     );
   }
 }
 
-class MyKeyExample extends StatefulWidget {
-  const MyKeyExample({super.key});
+class Commando extends StatefulWidget {
+  const Commando({super.key});
 
   @override
-  State<MyKeyExample> createState() => _MyKeyExampleState();
+  State<Commando> createState() => _CommandoState();
 }
 
-class _MyKeyExampleState extends State<MyKeyExample> {
-  // The node used to request the keyboard focus.
+class _CommandoState extends State<Commando> {
   final FocusNode _focusNode = FocusNode();
-  // The message to display.
-  String? _message;
+  final FocusNode _focusNode2 = FocusNode();
+  final TextEditingController controller = TextEditingController();
+  Timer? _debounce;
 
-  // Focus nodes need to be disposed.
   @override
   void dispose() {
     _focusNode.dispose();
+    _focusNode2.dispose();
+    _debounce?.cancel();
     super.dispose();
   }
 
-  // Handles the key events from the Focus widget and updates the
-  // _message.
-  KeyEventResult _handleKeyEvent(FocusNode node, KeyEvent event) {
-    setState(() {
-      if (event.logicalKey == LogicalKeyboardKey.keyQ) {
-        _message = 'Pressed the "Q" key!';
-      } else {
-        if (kReleaseMode) {
-          _message =
-              'Not a Q: Pressed 0x${event.logicalKey.keyId.toRadixString(16)}';
-        } else {
-          // As the name implies, the debugName will only print useful
-          // information in debug mode.
-          _message = 'Not a Q: Pressed ${event.logicalKey.debugName}';
-        }
-      }
-    });
-    return event.logicalKey == LogicalKeyboardKey.keyQ
-        ? KeyEventResult.handled
-        : KeyEventResult.ignored;
-  }
-
   @override
   Widget build(BuildContext context) {
-    final TextTheme textTheme = Theme.of(context).textTheme;
-    return Container(
-      color: Colors.white,
-      alignment: Alignment.center,
-      child: DefaultTextStyle(
-        style: textTheme.headlineMedium!,
-        child: Focus(
-          focusNode: _focusNode,
-          onKeyEvent: _handleKeyEvent,
-          child: ListenableBuilder(
-            listenable: _focusNode,
-            builder: (BuildContext context, Widget? child) {
-              if (!_focusNode.hasFocus) {
-                return GestureDetector(
-                  onTap: () {
-                    FocusScope.of(context).requestFocus(_focusNode);
-                  },
-                  child: const Text('Click to focus'),
-                );
-              }
-              return Text(_message ?? 'Press a key');
-            },
-          ),
+    if (!_focusNode.hasFocus) {
+      _focusNode.requestFocus();
+    }
+
+    return Focus(
+      focusNode: _focusNode,
+      onKeyEvent: (FocusNode node, KeyEvent event) {
+        if (_debounce?.isActive ?? false) {
+          _debounce?.cancel();
+          return KeyEventResult.ignored;
+        }
+        _debounce = Timer(const Duration(milliseconds: 500), () {});
+        if (event.logicalKey == LogicalKeyboardKey.arrowUp) {
+          context.read<HomeBloc>().add(const HomeEvent.onArrowUp());
+          return KeyEventResult.handled;
+        }
+        if (event.logicalKey == LogicalKeyboardKey.arrowDown) {
+          context.read<HomeBloc>().add(const HomeEvent.onArrowDown());
+          return KeyEventResult.handled;
+        }
+        return KeyEventResult.ignored;
+      },
+      child: BlocListener<HomeBloc, HomeState>(
+        listener: (context, state) {
+          controller.text =
+              state.history[state.history.length - 1 - state.reverseIndex];
+        },
+        child: TextFormField(
+          controller: controller,
+          focusNode: _focusNode2,
+          onChanged: (value) {
+            context.read<HomeBloc>().add(HomeEvent.onCommandInput(value));
+          },
+          onFieldSubmitted: (_) {
+            context.read<HomeBloc>().add(const HomeEvent.onSubmit());
+            _focusNode2.requestFocus();
+          },
+          decoration: const InputDecoration(border: InputBorder.none),
         ),
       ),
-    );
-  }
-}
-
-class CommandInput extends StatelessWidget {
-  const CommandInput({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      autofocus: true,
-      onFieldSubmitted: (value) {},
     );
   }
 }
