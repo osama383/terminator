@@ -24,6 +24,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         },
         onSubmit: (value) {
           final history = List<String>.from(state.history);
+          history[history.length - 1] =
+              history[history.length - 1 - state.reverseIndex];
           emit(
             state.copyWith(
               history: history..add(''),

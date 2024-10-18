@@ -15,8 +15,34 @@ class Home extends StatelessWidget {
       create: (context) => HomeBloc(),
       child: Scaffold(
         appBar: AppBar(title: const Text('Terminator')),
-        body: const Commando(),
+        body: ListView(
+          children: const [
+            _Output(),
+            Commando(),
+          ],
+        ),
       ),
+    );
+  }
+}
+
+class _Output extends StatelessWidget {
+  const _Output();
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<HomeBloc, HomeState>(
+      builder: (context, state) {
+        final history = state.history.getRange(0, state.history.length - 1);
+        if (history.isEmpty) {
+          return const SizedBox.shrink();
+        }
+        final output = history.fold(
+          '',
+          (previousValue, element) => '$previousValue$element\n',
+        );
+        return Text(output);
+      },
     );
   }
 }
