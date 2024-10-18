@@ -577,6 +577,8 @@ abstract class _OnSubmit implements HomeEvent {
 mixin _$HomeState {
   List<String> get history => throw _privateConstructorUsedError;
   int get reverseIndex => throw _privateConstructorUsedError;
+  List<String> get directories => throw _privateConstructorUsedError;
+  List<CommandOutput> get results => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -588,7 +590,11 @@ abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
-  $Res call({List<String> history, int reverseIndex});
+  $Res call(
+      {List<String> history,
+      int reverseIndex,
+      List<String> directories,
+      List<CommandOutput> results});
 }
 
 /// @nodoc
@@ -606,6 +612,8 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   $Res call({
     Object? history = null,
     Object? reverseIndex = null,
+    Object? directories = null,
+    Object? results = null,
   }) {
     return _then(_value.copyWith(
       history: null == history
@@ -616,6 +624,14 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.reverseIndex
           : reverseIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      directories: null == directories
+          ? _value.directories
+          : directories // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      results: null == results
+          ? _value.results
+          : results // ignore: cast_nullable_to_non_nullable
+              as List<CommandOutput>,
     ) as $Val);
   }
 }
@@ -628,7 +644,11 @@ abstract class _$$HomeStateImplCopyWith<$Res>
       __$$HomeStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<String> history, int reverseIndex});
+  $Res call(
+      {List<String> history,
+      int reverseIndex,
+      List<String> directories,
+      List<CommandOutput> results});
 }
 
 /// @nodoc
@@ -644,6 +664,8 @@ class __$$HomeStateImplCopyWithImpl<$Res>
   $Res call({
     Object? history = null,
     Object? reverseIndex = null,
+    Object? directories = null,
+    Object? results = null,
   }) {
     return _then(_$HomeStateImpl(
       history: null == history
@@ -654,6 +676,14 @@ class __$$HomeStateImplCopyWithImpl<$Res>
           ? _value.reverseIndex
           : reverseIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      directories: null == directories
+          ? _value._directories
+          : directories // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      results: null == results
+          ? _value._results
+          : results // ignore: cast_nullable_to_non_nullable
+              as List<CommandOutput>,
     ));
   }
 }
@@ -662,8 +692,13 @@ class __$$HomeStateImplCopyWithImpl<$Res>
 
 class _$HomeStateImpl implements _HomeState {
   const _$HomeStateImpl(
-      {required final List<String> history, required this.reverseIndex})
-      : _history = history;
+      {required final List<String> history,
+      required this.reverseIndex,
+      required final List<String> directories,
+      required final List<CommandOutput> results})
+      : _history = history,
+        _directories = directories,
+        _results = results;
 
   final List<String> _history;
   @override
@@ -675,10 +710,25 @@ class _$HomeStateImpl implements _HomeState {
 
   @override
   final int reverseIndex;
+  final List<String> _directories;
+  @override
+  List<String> get directories {
+    if (_directories is EqualUnmodifiableListView) return _directories;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_directories);
+  }
+
+  final List<CommandOutput> _results;
+  @override
+  List<CommandOutput> get results {
+    if (_results is EqualUnmodifiableListView) return _results;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_results);
+  }
 
   @override
   String toString() {
-    return 'HomeState(history: $history, reverseIndex: $reverseIndex)';
+    return 'HomeState(history: $history, reverseIndex: $reverseIndex, directories: $directories, results: $results)';
   }
 
   @override
@@ -688,12 +738,19 @@ class _$HomeStateImpl implements _HomeState {
             other is _$HomeStateImpl &&
             const DeepCollectionEquality().equals(other._history, _history) &&
             (identical(other.reverseIndex, reverseIndex) ||
-                other.reverseIndex == reverseIndex));
+                other.reverseIndex == reverseIndex) &&
+            const DeepCollectionEquality()
+                .equals(other._directories, _directories) &&
+            const DeepCollectionEquality().equals(other._results, _results));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_history), reverseIndex);
+      runtimeType,
+      const DeepCollectionEquality().hash(_history),
+      reverseIndex,
+      const DeepCollectionEquality().hash(_directories),
+      const DeepCollectionEquality().hash(_results));
 
   @JsonKey(ignore: true)
   @override
@@ -705,12 +762,18 @@ class _$HomeStateImpl implements _HomeState {
 abstract class _HomeState implements HomeState {
   const factory _HomeState(
       {required final List<String> history,
-      required final int reverseIndex}) = _$HomeStateImpl;
+      required final int reverseIndex,
+      required final List<String> directories,
+      required final List<CommandOutput> results}) = _$HomeStateImpl;
 
   @override
   List<String> get history;
   @override
   int get reverseIndex;
+  @override
+  List<String> get directories;
+  @override
+  List<CommandOutput> get results;
   @override
   @JsonKey(ignore: true)
   _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>

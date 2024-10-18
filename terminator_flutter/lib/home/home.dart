@@ -33,13 +33,14 @@ class _Output extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
-        final history = state.history.getRange(0, state.history.length - 1);
-        if (history.isEmpty) {
+        if (state.results.isEmpty) {
           return const SizedBox.shrink();
         }
-        final output = history.fold(
+
+        final output = state.results.fold(
           '',
-          (previousValue, element) => '$previousValue$element\n',
+          (previousValue, element) =>
+              '$previousValue${(element.command.input)}\n${element.output}\n',
         );
         return Text(output);
       },
